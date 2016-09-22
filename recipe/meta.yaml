@@ -1,27 +1,24 @@
 {% set name = "seqan-library" %}
-{% set version = "2.2.0" %}
-{% set sha256 = "b5c036a3d2fc2fe5f2d57dcd4d7c523a6df146ab7b44bc789f42004b058d72fd" %}
+{% set version = "1.4.2" %}
+{% set sha256 = "004e6e07ec2e137cc5f637372ea9f67156066ee8a88a583f37490741bd31045e" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.xz
-  url: https://github.com/seqan/seqan/releases/download/seqan-v{{ version }}/{{ name }}-{{ version }}.tar.xz
+  fn: {{ name }}-{{ version }}.zip
+  url: https://github.com/seqan/seqan/releases/download/seqan-v{{ version }}/{{ name }}-{{ version }}.zip
   sha256: {{ sha256 }}
 
 build:
   number: 0
-  skip: True  # [py<33 and win]
   script: cp -r include share $PREFIX  # [unix]
 
 test:
   commands:
     - test -f $PREFIX/include/seqan/seq_io.h  # [unix]
-    - test -f $PREFIX/share/cmake/Modules/FindSeqAn.cmake  # [unix]
     - if not exist "%PREFIX%"\\include\\seqan\\seq_io.h exit 1  # [win]
-    - if not exist "%PREFIX%"\\share\\cmake\\Modules\\FindSeqAn.cmake exit 1  # [win]
 
 about:
   home: https://www.seqan.de
