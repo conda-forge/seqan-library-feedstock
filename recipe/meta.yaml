@@ -1,6 +1,6 @@
 {% set name = "seqan-library" %}
-{% set version = "2.2.0" %}
-{% set sha256 = "b5c036a3d2fc2fe5f2d57dcd4d7c523a6df146ab7b44bc789f42004b058d72fd" %}
+{% set version = "2.3.2" %}
+{% set sha256 = "73ce4b344e6a259db1518547544c730f548bc0b32292b30e3a027146e158085e" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.xz
-  url: https://github.com/seqan/seqan/releases/download/seqan-v{{ version }}/{{ name }}-{{ version }}.tar.xz
+  url: https://github.com/seqan/seqan/archive/seqan-v{{ version}}.tar.gz
   sha256: {{ sha256 }}
 
 build:
