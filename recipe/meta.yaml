@@ -14,14 +14,14 @@ source:
 build:
   number: 0
   skip: True  # [py<33 and win]
-  script: cp -r include share $PREFIX  # [unix]
+  script: cp -r include share lib $PREFIX  # [unix]
 
 test:
   commands:
     - test -f $PREFIX/include/seqan/seq_io.h  # [unix]
-    - test -f $PREFIX/share/cmake/Modules/FindSeqAn.cmake  # [unix]
+    - test -f $PREFIX/lib/cmake/seqan/seqan-config.cmake  # [unix]
     - if not exist "%PREFIX%"\\include\\seqan\\seq_io.h exit 1  # [win]
-    - if not exist "%PREFIX%"\\share\\cmake\\Modules\\FindSeqAn.cmake exit 1  # [win]
+    - if not exist "%PREFIX%"\\lib\\cmake\\seqan\\seqan-config.cmake exit 1  # [win]
 
 about:
   home: https://www.seqan.de
