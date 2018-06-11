@@ -1,6 +1,6 @@
 {% set name = "seqan-library" %}
-{% set version = "2.2.0" %}
-{% set sha256 = "b5c036a3d2fc2fe5f2d57dcd4d7c523a6df146ab7b44bc789f42004b058d72fd" %}
+{% set version = "2.4.0" %}
+{% set sha256 = "dd97b1514ab83acb7d7be911b157979e188e8ca72cc61c430c1e0fd03bcd41a5" %}
 
 package:
   name: {{ name|lower }}
@@ -19,9 +19,9 @@ build:
 test:
   commands:
     - test -f $PREFIX/include/seqan/seq_io.h  # [unix]
-    - test -f $PREFIX/share/cmake/Modules/FindSeqAn.cmake  # [unix]
+    - test -f $PREFIX/share/cmake/seqan/seqan-config.cmake  # [unix]
     - if not exist "%PREFIX%"\\include\\seqan\\seq_io.h exit 1  # [win]
-    - if not exist "%PREFIX%"\\share\\cmake\\Modules\\FindSeqAn.cmake exit 1  # [win]
+    - if not exist "%PREFIX%"\\share\\cmake\\seqan\\seqan-config.cmake exit 1  # [win]
 
 about:
   home: https://www.seqan.de
