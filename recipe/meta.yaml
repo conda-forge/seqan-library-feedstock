@@ -1,6 +1,6 @@
 {% set name = "seqan-library" %}
-{% set version = "2.4.0" %}
-{% set sha256 = "dd97b1514ab83acb7d7be911b157979e188e8ca72cc61c430c1e0fd03bcd41a5" %}
+{% set version = "2.5.0" %}
+{% set sha256 = "03a605e44d60e0a04b5822db4abd590f252012b2c579fd1167a09daeba758fce" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [py<33 and win]
+  skip: true  # [py<33 and win]
   script: cp -r include share $PREFIX  # [unix]
 
 test:
